@@ -1,6 +1,6 @@
 # MiReto Demo Legal (Next.js)
 
-Sitio mínimo para cumplir con requisitos del portal de TikTok:
+Sitio mínimo para cumplir con requisitos del portal de TikTok::
 - Página de Términos: /terms
 - Página de Privacidad: /privacy
 - Callback OAuth: /api/tiktok/callback (placeholder que devuelve JSON)
