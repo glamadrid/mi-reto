@@ -3,6 +3,7 @@ import { randomUUID } from 'crypto';
 
 // Fuerza runtime Node (evita Edge por si tu build lo cambiara)
 export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
 
 export async function GET(req: NextRequest) {
   const clientKey = process.env.TIKTOK_CLIENT_KEY;
