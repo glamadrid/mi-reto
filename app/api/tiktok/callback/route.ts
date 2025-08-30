@@ -36,5 +36,18 @@ export async function GET(req: NextRequest) {
   );
   const infoJson = await infoRes.json();
 
-  return NextResponse.json({ ok: true, user: infoJson, token: tokenJson });
+  // ⚠️ No guardes el access_token en cookies del navegador.
+  // Solo guardamos datos no sensibles para mostrar en la UI.
+  const name = infoJson?.data?.user?.display_name ?? 'Usuario';
+  const avatar = infoJson?.data?.user?.avatar_url ?? '';
+
+  const res = NextResponse.redirect(`${process.env.APP_BASE_URL}/bienvenido`);
+  res.cookies.set('tiktok_display_name', name, {
+    httpOnly: true, sameSite: 'lax', path: '/', maxAge: 60 * 60 * 24,
+  });
+  res.cookies.set('tiktok_avatar_url', avatar, {
+    httpOnly: true, sameSite: 'lax', path: '/', maxAge: 60 * 60 * 24,
+  });
+
+  return res;
 }
