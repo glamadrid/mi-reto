@@ -10,3 +10,12 @@ export default function Home() {
     </main>
   );
 }
+
+export default function Home() {
+  return (
+    <main style={{ padding: 24 }}>
+      <h1>Mi Reto</h1>
+      <a href="/api/tiktok/login">Continuar con TikTok</a>
+    </main>
+  );
+}
